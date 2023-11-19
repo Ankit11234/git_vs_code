@@ -12,6 +12,7 @@ mongoose.connect(MONGO_URL)
   .catch((err) => console.error(err));
 
   const PORT=4000;
+  
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
