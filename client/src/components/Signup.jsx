@@ -3,6 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { BASE_URL } from "./util";
+
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -37,7 +39,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:4000/signup",
+        `${BASE_URL}/signup`,
         {
           ...inputValue,
         },

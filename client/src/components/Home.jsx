@@ -4,6 +4,8 @@ import { useCookies } from "react-cookie";
 import axios from "axios";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { BASE_URL } from "./util";
+
 
 const Home = () => {
   const navigate = useNavigate();
@@ -15,7 +17,7 @@ const Home = () => {
         navigate("/login");
       }
       const { data } = await axios.post(
-        "http://localhost:4000",
+        BASE_URL,
         {},
         { withCredentials: true }
       );
