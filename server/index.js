@@ -17,6 +17,10 @@ app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
 
+
+app.use('/',(req,res)=>{
+  res.send("hello from server");
+})
 //giving frontend url
 // app.use(cors({
 //   origin:CLIENT_URL}));

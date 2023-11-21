@@ -14,13 +14,14 @@ const Home = () => {
   useEffect(() => {
     const verifyCookie = async () => {
       if (!cookies.token) {
+        console.log("not cookies")
         navigate("/login");
       }
-      const { data } = await axios.post(
-        BASE_URL,
-        {},
+      const res = await axios.post('/user',
         { withCredentials: true }
       );
+      console.log(res);
+      const {data}=res;
       const { status, user } = data;
       setUsername(user);
       return status
