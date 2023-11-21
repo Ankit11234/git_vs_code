@@ -17,6 +17,9 @@ app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
 
+app.use('/',(req,res)=>{
+  res.send("hello from server");
+})
 app.use(cors({
   origin:CLIENT_URL,
   credentials: true
