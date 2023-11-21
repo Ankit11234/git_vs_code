@@ -5,7 +5,7 @@ const app = express();
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const authRoute = require("./routes/Authroute.js");
-const { MONGO_URL} = process.env;
+const { MONGO_URL,CLIENT_URL} = process.env;
 
 mongoose.connect(MONGO_URL)
   .then(() => console.log("MongoDB is  connected successfully"))
@@ -18,10 +18,13 @@ app.listen(PORT, () => {
 });
 
 //giving frontend url
+// app.use(cors({
+//   origin:CLIENT_URL}));
 app.use(cors({
-  origin:process.env.CLIENT_URL,
+  origin:[CLIENT_URL,"https://655a22a6efcad6415abebfa0--creative-semifreddo-b5cb93.netlify.app"],
   credentials: true
 }));
+// origin:process.env.CLIENT_URL,
 
 app.use(cookieParser());
 
