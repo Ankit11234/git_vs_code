@@ -17,15 +17,22 @@ app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
 
-app.use('/',(req,res)=>{
-  res.send("hello from server");
-})
+
+
+  //giving frontend url
+// app.use(cors({
+//   origin:CLIENT_URL}));
 app.use(cors({
-  origin:CLIENT_URL,
+  origin:[CLIENT_URL,"https://655a22a6efcad6415abebfa0--creative-semifreddo-b5cb93.netlify.app"],
   credentials: true
 }));
+// origin:process.env.CLIENT_URL,
+
 app.use(cookieParser());
 
 app.use(express.json());
 
 app.use("/", authRoute);
+app.get('/',(req,res)=>{
+  res.send("hello from server");
+})
