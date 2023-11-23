@@ -23,7 +23,7 @@ app.listen(PORT, () => {
 // app.use(cors({
 //   origin:CLIENT_URL}));
 app.use(cors({
-  origin:[CLIENT_URL,"https://655a22a6efcad6415abebfa0--creative-semifreddo-b5cb93.netlify.app"],
+  origin:CLIENT_URL,
   credentials: true
 }));
 // origin:process.env.CLIENT_URL,
@@ -33,6 +33,3 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/", authRoute);
-app.get('/',(req,res)=>{
-  res.send("hello from server");
-})

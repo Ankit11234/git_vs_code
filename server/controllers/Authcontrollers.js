@@ -11,8 +11,11 @@ module.exports.Signup = async (req, res, next) => {
     }
     const hashed= await bcrypt.hash(password,12);
     const user = await User.create({ email, password:hashed, username });
+
     
-    res.status(201).json({ message: "User registered in successfully", success: true, user });
+    res
+      .status(201)
+      .json({ message: "User registered in successfully", success: true, user });
     next();
   } catch (error) {
     console.error(error);
