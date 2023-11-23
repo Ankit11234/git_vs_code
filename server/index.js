@@ -18,10 +18,8 @@ app.listen(PORT, () => {
 });
 
 
-app.use('/',(req,res)=>{
-  res.send("hello from server");
-})
-//giving frontend url
+
+  //giving frontend url
 // app.use(cors({
 //   origin:CLIENT_URL}));
 app.use(cors({
@@ -35,3 +33,6 @@ app.use(cookieParser());
 app.use(express.json());
 
 app.use("/", authRoute);
+app.get('/',(req,res)=>{
+  res.send("hello from server");
+})
